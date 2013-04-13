@@ -1,0 +1,15 @@
+{
+  "name": "abrar",
+  "version": "0.0.0",
+  "description": "heroku from cloud 9",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ahmeda8/heroku.git"
+  },
+  "author": "Abrar",
+  "license": "BSD"
+}
