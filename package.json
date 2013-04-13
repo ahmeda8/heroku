@@ -1,15 +1,11 @@
 {
-  "name": "abrar",
-  "version": "0.0.0",
-  "description": "heroku from cloud 9",
-  "main": "web.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "node-example",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.1.x"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ahmeda8/heroku.git"
-  },
-  "author": "Abrar",
-  "license": "BSD"
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
 }
