@@ -3,6 +3,8 @@ var app = express();
 app.use(express.logger());
 var http = require("http");
 var querystring = require("querystring");
+var fs = require("fs");
+var emails = require("./emailList.json");
 //var process = require("process");
 
 app.get('/', function(request, response) {
@@ -13,51 +15,95 @@ var port = process.env.PORT || 5000;
 //app.listen(port, function() {
   //console.log("Listening on " + port);  
 //});
+console.log("post start");
+var i = 0;
+/*
+var id = setInterval(logcallback(emails.result[i++].email,i,emails.result.length),1000);
 
-var targetHost = "go.generalassemb.ly";
-var targetPath = "/l/19312/2013-04-03/2v5w9";
-var options = {
-    host: targetHost,
-    post: 80,
-    path:targetPath,
-    method:'POST'
-};
+function logcallback(text,iint,max)
+{
+    if(iint == max-1)
+        clearInterval(id);
+    console.log(text);
+}
+*/
 
-var paramsJson = {
-  email  :'aahmed@internetbrands.com',
-  metro:'new-york-city',
-  checkbox:'on'
-};
-var params = querystring.stringify(paramsJson);
-console.log(params);
-//process.exit(1);
+var idinterval = setInterval(function(){
+    console.log(emails.result[i++].email);
+    postEmailsToGA(emails.result[i].email);
+    if(i > emails.result.length-1)
+        clearInterval(idinterval);
+},60000);
+//setTimeout(testTime(),1000); //timeout occurs after the function is called
+//console.log(emails);
+console.log("post end");
 
-var headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0',
-    'Accept': 'application/json, text/javascript, */*; q=0.01',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'Accept-Encoding': 'gzip, deflate',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'Content-Length': params.length,
-    'Origin': 'https://generalassemb.ly',
-    'Connection': 'keep-alive',
-    'Pragma': 'no-cache',
-    'Cache-Control': 'no-cache'
+
+
+/*
+function testTime()
+{
+    var data1;
+     console.log("reading file");
+     
+    fs.readFile('emailList.json','utf-8',function(err,data){
+        //console.log(data);
+        data1 = data;
+        //return data;
+    });
     
-};
-var req = http.request(options,function(response) {
-    console.log('STATUS: ' + response.statusCode);
-    console.log('HEADERS: ' + JSON.stringify(response.headers));
-    response.setEncoding('utf8');
-    response.on('data', function (chunk) {
-    console.log('BODY: ' + chunk);
-  });
-});
-
-req.on('error', function(e) {
-  console.log('problem with request: ' + e.message);
-});
-
-req.headers = headers;
-req.write(params);
-req.end();
+    //console.log(data1);
+    return data1;
+}
+*/
+function postEmailsToGA(emailTo)
+{
+    console.log("in function post");
+    var targetHost = "go.generalassemb.ly";
+    var targetPath = "/l/19312/2013-04-03/2v5w9";
+    var options = {
+        host: targetHost,
+        post: 80,
+        path:targetPath,
+        method:'POST'
+    };
+    
+    var paramsJson = {
+      email  :emailTo,
+      metro:'new-york-city',
+      checkbox:'on'
+    };
+    var params = querystring.stringify(paramsJson);
+    console.log(params);
+    //process.exit(1);
+    
+    var headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0',
+        'Accept': 'application/json, text/javascript, */*; q=0.01',
+        'Accept-Language': 'en-US,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'Content-Length': params.length,
+        'Origin': 'https://generalassemb.ly',
+        'Connection': 'keep-alive',
+        'Pragma': 'no-cache',
+        'Cache-Control': 'no-cache'
+        
+    };
+    var req = http.request(options,function(response) {
+        console.log('STATUS: ' + response.statusCode);
+        console.log('HEADERS: ' + JSON.stringify(response.headers));
+        response.setEncoding('utf8');
+        response.on('data', function (chunk) {
+        console.log('BODY: ' + chunk);
+      });
+    });
+    
+    req.on('error', function(e) {
+      console.log('problem with request: ' + e.message);
+    });
+    
+    req.headers = headers;
+    req.write(params);
+    req.end();
+}
