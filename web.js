@@ -29,7 +29,7 @@ console.log("post end");
 
 function postEmailsToGA(emailTo)
 {
-    console.log("in function post");
+    //console.log("in function post");
     var targetHost = "go.generalassemb.ly";
     var targetPath = "/l/19312/2013-04-03/2v5w9";
     var options = {
@@ -45,7 +45,7 @@ function postEmailsToGA(emailTo)
       checkbox:'on'
     };
     var params = querystring.stringify(paramsJson);
-    console.log(params);
+    //console.log(params);
     //process.exit(1);
     
     var headers = {
@@ -63,10 +63,10 @@ function postEmailsToGA(emailTo)
     };
     var req = http.request(options,function(response) {
         console.log('STATUS: ' + response.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(response.headers));
+        //console.log('HEADERS: ' + JSON.stringify(response.headers));
         response.setEncoding('utf8');
         response.on('data', function (chunk) {
-        console.log('BODY: ' + chunk);
+        //console.log('BODY: ' + chunk);
       });
     });
     
