@@ -16,16 +16,21 @@ var port = process.env.PORT || 5000;
 //  console.log("Listening on " + port);  
 //});
 
-console.log("post start");
+console.log("starting worker");
 var i = 0;
-
+var max = emails.result.length-1;
+var delaytime = 5*60*1000; //mins * secs * millisecs
 var idinterval = setInterval(function(){
-    console.log(emails.result[i++].email);
-    postEmailsToGA(emails.result[i].email);
-    if(i > emails.result.length-1)
+    //console.log(i++);
+    var emailTo = emails.result[i++].email
+    console.log(emailTo+",iteration:"+i+",max:"+max);    
+    postEmailsToGA(emailTo);
+    if(i > max)
+    {
         clearInterval(idinterval);
-},60000);
-console.log("post end");
+        console.log("ending worker process");
+    }
+},delaytime);
 
 function postEmailsToGA(emailTo)
 {
