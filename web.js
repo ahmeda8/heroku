@@ -12,21 +12,12 @@ app.get('/', function(request, response) {
 });
 
 var port = process.env.PORT || 5000;
-//app.listen(port, function() {
-  //console.log("Listening on " + port);  
-//});
+app.listen(port, function() {
+  console.log("Listening on " + port);  
+});
+
 console.log("post start");
 var i = 0;
-/*
-var id = setInterval(logcallback(emails.result[i++].email,i,emails.result.length),1000);
-
-function logcallback(text,iint,max)
-{
-    if(iint == max-1)
-        clearInterval(id);
-    console.log(text);
-}
-*/
 
 var idinterval = setInterval(function(){
     console.log(emails.result[i++].email);
@@ -34,28 +25,8 @@ var idinterval = setInterval(function(){
     if(i > emails.result.length-1)
         clearInterval(idinterval);
 },60000);
-//setTimeout(testTime(),1000); //timeout occurs after the function is called
-//console.log(emails);
 console.log("post end");
 
-
-
-/*
-function testTime()
-{
-    var data1;
-     console.log("reading file");
-     
-    fs.readFile('emailList.json','utf-8',function(err,data){
-        //console.log(data);
-        data1 = data;
-        //return data;
-    });
-    
-    //console.log(data1);
-    return data1;
-}
-*/
 function postEmailsToGA(emailTo)
 {
     console.log("in function post");

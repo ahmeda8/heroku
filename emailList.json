@@ -1,82 +1,10 @@
 {
     "id": 1,
     "jsonrpc": "2.0",
-    "total": 25,
+    "total": 1,
     "result": [
         {
-            "email": "Melanie.Vaughan@eaterieshandbook.com"
-        },
-        {
-            "email": "Payton.Bush@eaterieshandbook.com"
-        },
-        {
-            "email": "Mya.Fisher@eaterieshandbook.com"
-        },
-        {
-            "email": "Evelyn.Wainwright@eaterieshandbook.com"
-        },
-        {
-            "email": "Molly.Gerald@eaterieshandbook.com"
-        },
-        {
-            "email": "Maya.Freeman@eaterieshandbook.com"
-        },
-        {
-            "email": "Kylie.Gerald@eaterieshandbook.com"
-        },
-        {
-            "email": "Zoey.Miln@eaterieshandbook.com"
-        },
-        {
-            "email": "Chloe.Watson@eaterieshandbook.com"
-        },
-        {
-            "email": "Allison.Thorndike@eaterieshandbook.com"
-        },
-        {
-            "email": "Gabriella.Wayne@eaterieshandbook.com"
-        },
-        {
-            "email": "Sydney.Miers@eaterieshandbook.com"
-        },
-        {
-            "email": "Sydney.Watson@eaterieshandbook.com"
-        },
-        {
-            "email": "Ariana.Murphy@eaterieshandbook.com"
-        },
-        {
-            "email": "Katelyn.Thomson@eaterieshandbook.com"
-        },
-        {
-            "email": "Anna.Morrison@eaterieshandbook.com"
-        },
-        {
-            "email": "Madeline.Gustman@eaterieshandbook.com"
-        },
-        {
-            "email": "Abigail.Bush@eaterieshandbook.com"
-        },
-        {
-            "email": "Taylor.Goodman@eaterieshandbook.com"
-        },
-        {
-            "email": "Lauren.Stanley@eaterieshandbook.com"
-        },
-        {
-            "email": "Sofia.Morrison@eaterieshandbook.com"
-        },
-        {
-            "email": "Bella.Croftoon@eaterieshandbook.com"
-        },
-        {
-            "email": "Bella.Goldman@eaterieshandbook.com"
-        },
-        {
-            "email": "Kaylee.Goodman@eaterieshandbook.com"
-        },
-        {
-            "email": "Olivia.WifKinson@eaterieshandbook.com"
+            "email": "Grace.Brown@eaterieshandbook.com"
         }
     ]
 }
