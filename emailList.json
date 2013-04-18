@@ -1,10 +1,37 @@
 {
     "id": 1,
     "jsonrpc": "2.0",
-    "total": 1,
+    "total": 10,
     "result": [
         {
-            "email": "Grace.Brown@eaterieshandbook.com"
+            "email": "Madelyn.Gardner@eaterieshandbook.com"
+        },
+        {
+            "email": "Mia.Youmans@eaterieshandbook.com"
+        },
+        {
+            "email": "Paige.Creighton@eaterieshandbook.com"
+        },
+        {
+            "email": "Jocelyn.Otis@eaterieshandbook.com"
+        },
+        {
+            "email": "Gianna.Hoggarth@eaterieshandbook.com"
+        },
+        {
+            "email": "Rachel.Smith@eaterieshandbook.com"
+        },
+        {
+            "email": "Bella.Brickman@eaterieshandbook.com"
+        },
+        {
+            "email": "Nevaeh.Abramson@eaterieshandbook.com"
+        },
+        {
+            "email": "Abigail.Mercer@eaterieshandbook.com"
+        },
+        {
+            "email": "Audrey.Thorndike@eaterieshandbook.com"
         }
     ]
 }
