@@ -12,7 +12,7 @@ var port = process.env.PORT || 5000;
 
 console.log("starting worker dart dos");
 var i = 0;
-var max = bdict.result.length;
+var max = bdict.result.length-1;
 var delaytime = 1; //mins * secs * millisecs
 var idinterval = setInterval(function(){
     if(i++ > max)
