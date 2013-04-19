@@ -1,1 +1,1 @@
-worker: node dart.js
+worker: node web.js

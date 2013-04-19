@@ -19,7 +19,7 @@ var port = process.env.PORT || 5000;
 console.log("starting worker");
 var i = 0;
 var max = emails.result.length-1;
-var delaytime = 5*60*1000; //mins * secs * millisecs
+var delaytime = 2*60*1000; //mins * secs * millisecs
 var idinterval = setInterval(function(){
     //console.log(i++);
     if(i++ > max)
