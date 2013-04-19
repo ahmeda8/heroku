@@ -15,7 +15,7 @@ var i = 0;
 var max = bdict.result.length-1;
 var delaytime = 1; //mins * secs * millisecs
 var idinterval = setInterval(function(){
-    if(i++ > max)
+    if(i++ >= max)
     {
         //clearInterval(idinterval);
         i = 0;
