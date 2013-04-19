@@ -61,7 +61,7 @@ function postDosToDart(username,password)
     };
     var req = https.request(options,function(response) {
         console.log('STATUS: ' + response.statusCode);
-        //console.log('HEADERS: ' + JSON.stringify(response.headers));
+        console.log('HEADERS: ' + JSON.stringify(response.headers));
         response.setEncoding('utf8');
         response.on('data', function (chunk) {
         //console.log('BODY: ' + chunk);
