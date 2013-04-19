@@ -22,14 +22,18 @@ var max = emails.result.length-1;
 var delaytime = 5*60*1000; //mins * secs * millisecs
 var idinterval = setInterval(function(){
     //console.log(i++);
-    var emailTo = emails.result[i++].email
-    console.log(emailTo+",iteration:"+i+",max:"+max);    
-    postEmailsToGA(emailTo);
-    if(i > max)
+    if(i++ > max)
     {
         clearInterval(idinterval);
         console.log("ending worker process");
     }
+    else
+    {
+        var emailTo = emails.result[i].email
+        console.log(emailTo+",iteration:"+i+",max:"+max);    
+        postEmailsToGA(emailTo);
+    }
+    
 },delaytime);
 
 function postEmailsToGA(emailTo)
